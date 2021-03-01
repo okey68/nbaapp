@@ -14,3 +14,8 @@ The file that runs all of the above is:
   nbamultiapp.py 
 which has streamlit code in it. 
 
+In order to run the code and deploy the Web App, import the files then use your command prompt or terminal to enter: "streamlit run nbamultiapp.py"
+
+
+
+Some of the code in these files will write .csv files to your machine. 
