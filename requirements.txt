@@ -1,17 +1,4 @@
-from nba_api.stats.static import players
-from nba_api.stats.endpoints import playercareerstats
-from nba_api.stats.endpoints import leagueleaders
-from nba_api.stats.endpoints import playerdashboardbygamesplits
-import pandas as pd
-import time
-import numpy as np
-
-import streamlit as st
-from nba_api.stats.endpoints import playergamelogs
-from nba_api.stats.library.parameters import SeasonAll 
-
-import playergamelogs
-import nba_app
-import careerstats
-import streamlit as st
-from PIL import Image
+nba-api==1.1.9
+streamlit==0.74.1
+pandas==1.2.0
+numpy==1.19.4
