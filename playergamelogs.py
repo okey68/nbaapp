@@ -22,8 +22,6 @@ def nbamultiapp():
     allGameLogs = playergamelogs.PlayerGameLogs(player_id_nullable=player_dict['id'], season_nullable= years_input)
     playerdf = allGameLogs.get_data_frames()[0]
     df = pd.DataFrame(playerdf)
-    df =  df[['SEASON_YEAR','PLAYER_NAME','TEAM_ABBREVIATION', 'MATCHUP','WL','PTS','REB','AST','STL','TOV']]
+    #print(df)
+    df =  df[['SEASON_YEAR','PLAYER_NAME','TEAM_ABBREVIATION', 'GAME_DATE', 'MATCHUP','WL','PTS','REB','AST','STL','TOV']]
     st.table(df)
-
-
-
