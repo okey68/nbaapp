@@ -9,11 +9,11 @@ def nbamultiapp():
     st.write("""
     # player career stats 
     ### type a player (accurately and completely)
-    
+
     """)
 
-    player_name = st.text_input("Player", 'LeBron James')
-    
+    player_name = st.text_input("Player", 'Michael Jordan')
+
     nba_players = players.get_players()
     player_dict = [player for player in nba_players if player['full_name'] == player_name][0]
     #print(player_dict)
