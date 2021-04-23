@@ -4,7 +4,7 @@ import careerstats
 import streamlit as st
 from PIL import Image
 
-image = Image.open('lebron.png')
+image = Image.open('new-kobe-nba-logo.png')
 st.image(image, width=150)
 
 
