@@ -16,12 +16,13 @@ def nbamultiapp():
 
     nba_players = players.get_players()
     player_dict = [player for player in nba_players if player['full_name'] == player_name][0]
-    # print(player_dict)
+    print(player_dict)
 
     career_stats = playercareerstats.PlayerCareerStats(player_id=player_dict['id'])
     playerdf = career_stats.get_data_frames()[0]
     df = pd.DataFrame(playerdf)
     df['NAME'] = player_dict['full_name']
     df = df[['NAME', 'SEASON_ID', 'TEAM_ABBREVIATION', 'PLAYER_AGE', 'PTS', 'FG_PCT', 'FG3_PCT', 'REB', 'AST', 'BLK']]
-    # print(df)
+
+
     st.table(df)
