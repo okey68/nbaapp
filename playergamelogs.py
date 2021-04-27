@@ -25,3 +25,5 @@ def nbamultiapp():
     #print(df)
     df =  df[['SEASON_YEAR','PLAYER_NAME','TEAM_ABBREVIATION', 'GAME_DATE', 'MATCHUP','WL','PTS','REB','AST','STL','TOV']]
     st.table(df)
+
+
