@@ -17,9 +17,13 @@ def get_nba_id():
         for player in nba_players:
             career_stats = playercareerstats.PlayerCareerStats(player_id=player['id'])
             career_df = career_stats.get_data_frames()[0]
-            career_df['NAME'] = player['full_name']
-
+            
             grouped = career_df.groupby(["PLAYER_ID"]).sum(numeric_only=True)
+            
+            grouped['FG_PCT'] = career_df['FG_PCT'].mean() *100
+            grouped['FG3_PCT'] = career_df['FG3_PCT'].mean() *100
+            grouped['FT_PCT'] = career_df['FT_PCT'].mean() *100
+
             playerdf = pd.concat([playerdf,grouped], sort=False)
             
             time.sleep(.600)
@@ -76,13 +80,13 @@ df['fg3_pct_rank'] = df['FG3_PCT'].rank(ascending = False, method = 'min')
 df['ft_pct_rnk'] = df['FT_PCT'].rank(ascending = False, method = 'min')
 
 ptsWeight = .80
-rankWeight = .40
-blkWeight = .05
-stlWeight = .15
-astWeight = .40
-rebWeight = .50
+rankWeight = .2 
+blkWeight = .15
+stlWeight = .1
+astWeight = .20
+rebWeight = .25
 orebWeight = .10
-fgWeight = .13
+fgWeight = .20
 fg3Weight = .10
 ftWeight = .04
 
@@ -103,8 +107,8 @@ df = df.sort_values(by='Total_Rank', ascending = True)
 del df['PLAYER']
 del df['Unnamed: 0']
 
-df = df[['full_name', 'PTS', 'AST', 'REB', 'FG_PCT', 'FG3_PCT', 'FT_PCT', 'STL', 'BLK']]
-
+df['Name'] = df['full_name']
+df = df[['Name', 'PTS', 'AST', 'REB', 'FG_PCT', 'FG3_PCT', 'FT_PCT', 'STL', 'BLK']].round()
 
 print(df)
 df.to_csv('NBARANK.csv')
