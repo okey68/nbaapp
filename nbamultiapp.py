@@ -9,9 +9,9 @@ st.image(image, width=150)
 
 
 PAGES = {
-    "nba ranks": nba_app,
-    "game logs": playergamelogs,
-    "career stats": careerstats
+    "NBA Rankings": nba_app,
+    "Game Logs": playergamelogs,
+    "Career Stats": careerstats
 }
 
 st.sidebar.title('Pages')
